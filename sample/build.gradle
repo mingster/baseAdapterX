@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdk 30
 
     defaultConfig {
         applicationId "com.zhy.sample"
-        minSdkVersion 10
-        targetSdkVersion 23
+        minSdkVersion 30
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
     }
@@ -17,14 +16,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support:recyclerview-v7:23.4.0'
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    //implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    //implementation 'com.android.support:recyclerview-v7:28.0.0'
 //    compile 'com.zhy:base-adapter:3.0.2'
 //    compile 'com.zhy:base-rvadapter:3.0.2'
-    compile project(':base-adapter-library')
-    compile project(':baseadapter-recyclerview')
+    implementation project(':base-adapter-library')
+    implementation project(':baseadapter-recyclerview')
 }
